@@ -1,0 +1,84 @@
+.formLogin {
+  background: linear-gradient(to right, #003366, #3399ff);
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  color: #ffffff; 
+  position: relative;
+}
+
+.formLogin h1 {
+  margin: 20px 0 0 0;
+  color: #ffffff; 
+}
+
+.formLogin .p1 {
+  margin-top: 0;
+  padding: 0;
+  color: #e0e0e0;
+}
+
+.formLogin input {
+  width: 80%;
+  margin-top: 30px;
+  border: none;
+  height: 40px;
+  border-radius: 10px;
+  padding-left: 10px;
+  background-color: #ffffff; 
+  color: #003366;    
+}
+
+.formLogin input::placeholder {
+  color: #666666; 
+  opacity: 1;
+}
+
+.formLogin .incorrect {
+  position: absolute;
+  font-size: 16px;
+  color: red;
+  width: 80%;
+  bottom: 150px;
+  left: 70px;
+}
+
+.formLogin .forgot-password {
+  width: 80%;
+  text-align: right;
+  margin-bottom: 40px;
+  color: #e0e0e0;
+}
+
+.formLogin button {
+  width: 80%;
+  border: none;
+  border-radius: 10px;
+  height: 50px;
+  background: linear-gradient(to right, #0066cc, #66ccff); 
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.formLogin button:hover {
+  background: linear-gradient(to right, #005bb5, #3399ff); 
+}
+
+.formLogin .p2 {
+  color: #ffffff;
+}
+
+.formLogin .p2 span {
+  color: #66ccff;
+  cursor: pointer;
+}

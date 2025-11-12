@@ -16,7 +16,7 @@ import com.backend.app.dto.response.JwtResponse;
 import com.backend.app.response.ApiResponse;
 import com.backend.app.security.jwt.JwtUtils;
 import com.backend.app.security.user.AppUserDetails;
-import com.backend.app.service.IUserService;
+import com.backend.app.service.IAuthService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -28,11 +28,11 @@ public class AuthController {
   
   private final AuthenticationManager authenticationManager;
   private final JwtUtils jwtUtils;
-  private final IUserService userService;
+  private final IAuthService authService;
 
   @PostMapping("/signup")
   public ResponseEntity<ApiResponse<JwtResponse>> register(@RequestBody @Valid UserRegisterRequest request) {
-    userService.register(request);
+    authService.register(request);
     Authentication authentication = authenticationManager
       .authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
     SecurityContextHolder.getContext().setAuthentication(authentication);

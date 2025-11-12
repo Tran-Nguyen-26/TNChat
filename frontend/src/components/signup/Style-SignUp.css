@@ -1,0 +1,63 @@
+.signUpForm {
+  background: linear-gradient(to right, #003366, #3399ff);
+  width: 500px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  border: 2px solid #ffffff;;
+}
+
+.signUpForm div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signUpForm input {
+  background: transparent;
+  height: 40px;
+  margin-top: 30px;
+  border: none;
+  width: 80%;
+  padding-left: 10px;
+  border-bottom: 1px solid white;
+  outline: none;
+  color: white;
+}
+
+.signUpForm input::placeholder {
+  color: white;
+}
+
+.signUpForm button {
+  width: 80%;
+  border: none;
+  border-radius: 10px;
+  height: 50px;
+  background: linear-gradient(to right, #0066cc, #66ccff); 
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 60px;
+}
+
+.signUpForm button:hover {
+  background: linear-gradient(to right, #005bb5, #3399ff); 
+}
+
+.signUpForm p {
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+.signUpForm p span {
+  color: #66ccff;
+  cursor: pointer;
+}
