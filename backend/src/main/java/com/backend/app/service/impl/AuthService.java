@@ -4,6 +4,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.backend.app.dto.request.UserRegisterRequest;
+import com.backend.app.exception.PasswordMismatchException;
 import com.backend.app.exception.UserAlreadyExistsException;
 import com.backend.app.model.User;
 import com.backend.app.repository.UserRepository;
@@ -24,6 +25,8 @@ public class AuthService implements IAuthService {
       throw new UserAlreadyExistsException("Username already exists: " + request.getUsername());
     } else if (userRepository.existsByEmail(request.getEmail())) {
       throw new UserAlreadyExistsException("Email already exists: " + request.getEmail());
+    } else if (!request.getPassword().equals(request.getConfirmPassword())) {
+      throw new PasswordMismatchException("Passwords do not match");
     }
     User user = User.builder()
         .fullname(request.getFullname())

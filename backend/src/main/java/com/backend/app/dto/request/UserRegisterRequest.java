@@ -17,8 +17,11 @@ public class UserRegisterRequest {
   @NotBlank(message = "email must be not blank")
   private String email;
 
-  @NotBlank(message = "password must be not bank")
+  @NotBlank(message = "password must be not blank")
   private String password;
+
+  @NotBlank(message = "confirm password must be not blank")
+  private String confirmPassword;
   
   private String phoneNumber;
   private LocalDate dob;

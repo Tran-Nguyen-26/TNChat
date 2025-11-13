@@ -11,5 +11,15 @@ export const useAuth = () => {
     }
   }
 
-  return { login }
+  const register = async (userData) => {
+    try {
+      const jwtResponse = await authService.register(userData)
+      window.location.href = '/home'
+      return jwtResponse
+    } catch (error) {
+      throw error
+    }
+  }
+
+  return { login, register }
 }

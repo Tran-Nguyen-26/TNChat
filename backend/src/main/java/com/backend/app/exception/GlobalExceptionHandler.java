@@ -63,4 +63,16 @@ public class GlobalExceptionHandler {
         "Incorrect email or password");
     return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
   }
+
+  @ExceptionHandler(PasswordMismatchException.class)
+  public ResponseEntity<ErrorResponse> handlePasswordMismatchException(PasswordMismatchException e, HttpServletRequest request) {
+    ErrorResponse error = ErrorResponse.builder()
+        .timestamp(new Date(System.currentTimeMillis()))
+        .status(HttpStatus.BAD_REQUEST.value())
+        .path(request.getRequestURI())
+        .error("Bad request")
+        .message(e.getMessage())
+        .build();
+    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+  }
 }
