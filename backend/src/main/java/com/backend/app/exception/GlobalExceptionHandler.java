@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.backend.app.response.ErrorResponse;
+import com.backend.app.dto.response.ErrorResponse;
 
 import jakarta.servlet.http.HttpServletRequest;
 

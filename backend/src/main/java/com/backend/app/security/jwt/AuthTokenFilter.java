@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -34,6 +35,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         String username = jwtUtils.getUsernameFromToken(jwt);
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
         var auth = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+        auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
         SecurityContextHolder.getContext().setAuthentication(auth);
       }
     } catch (JwtException e) {

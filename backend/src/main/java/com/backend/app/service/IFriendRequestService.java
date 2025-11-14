@@ -1,7 +1,7 @@
 package com.backend.app.service;
 
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import com.backend.app.model.FriendRequest;
 

@@ -32,7 +32,7 @@ public class FriendController {
   @GetMapping("/alls")
   public ResponseEntity<ApiResponse<PageResponse<FriendResponse>>> getFriends(
       @AuthenticationPrincipal AppUserDetails user,
-      @PageableDefault(page = 0, size = 5) Pageable pageable) {
+      @PageableDefault(page = 0, size = 20) Pageable pageable) {
     Page<Friend> friends = friendService.getFriends(user.getId(), pageable);
     Page<FriendResponse> response = friendMapper.toFriendResponsePage(friends);
     return ResponseEntity.ok(ApiResponse

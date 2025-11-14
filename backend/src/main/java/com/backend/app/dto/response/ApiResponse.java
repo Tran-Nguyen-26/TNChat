@@ -1,4 +1,4 @@
-package com.backend.app.response;
+package com.backend.app.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

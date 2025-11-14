@@ -67,7 +67,7 @@ public class AppConfig {
       .exceptionHandling(ex -> ex.authenticationEntryPoint(authEntryPoint))
       .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
       .authorizeHttpRequests(auth -> auth
-        .requestMatchers("/api/v1/auth/login/**", "/api/v1/auth/signup").permitAll()
+        .requestMatchers("/api/v1/auth/login", "/api/v1/auth/signup").permitAll()
         .anyRequest().authenticated());
     http.authenticationProvider(authenticationProvider());
     http.addFilterBefore(authTokenFilter(), UsernamePasswordAuthenticationFilter.class);
