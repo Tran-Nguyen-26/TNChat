@@ -18,6 +18,12 @@ public class UserSerivce implements IUserService {
   @Override
   public User getUserByUsername(String username) {
     return userRepository.findByUsername(username)
-      .orElseThrow(() -> new UsernameNotFoundException("User nof found: " + username));
+      .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
+  }
+
+  @Override
+  public User getUserById(Long userId) {
+    return userRepository.findById(userId)
+      .orElseThrow(() -> new UsernameNotFoundException("User not found with id: " + userId));
   }
 }

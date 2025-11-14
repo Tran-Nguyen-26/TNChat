@@ -75,4 +75,28 @@ public class GlobalExceptionHandler {
         .build();
     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
   }
+
+  @ExceptionHandler(BadRequestException.class)
+  public ResponseEntity<ErrorResponse> handleBadRequestException(BadRequestException e, HttpServletRequest request) {
+    ErrorResponse error = ErrorResponse.builder()
+        .timestamp(new Date(System.currentTimeMillis()))
+        .status(HttpStatus.BAD_REQUEST.value())
+        .path(request.getRequestURI())
+        .error("Bad request")
+        .message(e.getMessage())
+        .build();
+    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+  }
+
+  @ExceptionHandler(ResourceNotFoundException.class)
+  public ResponseEntity<ErrorResponse> handleResourceNotFoundException(ResourceNotFoundException e, HttpServletRequest request) {
+    ErrorResponse error = ErrorResponse.builder()
+        .timestamp(new Date(System.currentTimeMillis()))
+        .status(HttpStatus.NOT_FOUND.value())
+        .path(request.getRequestURI())
+        .error("Not found")
+        .message(e.getMessage())
+        .build();
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+  }
 }

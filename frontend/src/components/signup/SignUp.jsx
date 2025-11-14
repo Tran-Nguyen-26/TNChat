@@ -29,7 +29,21 @@ const SignUp = ({onSwitch}) => {
   const validateForm = () => {
     const newErrors = {}
     if (!formSignUpData.fullname.trim()) {
-      newErrors.fullname = "fullname"
+      newErrors.fullname = "fullname is required"
+    }
+    if (!formSignUpData.username.trim()) {
+      newErrors.username = "username is required"
+    }
+    if (!formSignUpData.email.trim()) {
+      newErrors.email = "email is required"
+    }
+    if (!formSignUpData.password.trim()) {
+      newErrors.password = "password is required"
+    }
+    if (!formSignUpData.confirmPassword.trim()) {
+      newErrors.confirmPassword = "confirm password is required"
+    } else if (formSignUpData.password.trim() !== formSignUpData.confirmPassword.trim()) {
+      newErrors.confirmPasswordMatch = "passwords do not match"
     }
     return newErrors;
   }
@@ -60,6 +74,10 @@ const SignUp = ({onSwitch}) => {
           value={formSignUpData.fullname}
           onChange={handleChange}
         />
+        {
+          errors.fullname &&
+          <p>{errors.fullname}</p>
+        }
       </div>
       <div>
         <input 
@@ -69,6 +87,10 @@ const SignUp = ({onSwitch}) => {
           value={formSignUpData.username}
           onChange={handleChange}
         />
+        {
+          errors.username &&
+          <p>{errors.username}</p>
+        }
       </div>
       <div>
         <input 
@@ -78,6 +100,10 @@ const SignUp = ({onSwitch}) => {
           value={formSignUpData.email}
           onChange={handleChange}
         />
+        {
+          errors.username &&
+          <p>{errors.email}</p>
+        }
       </div>
       <div>
         <input 
@@ -105,6 +131,10 @@ const SignUp = ({onSwitch}) => {
           value={formSignUpData.password}
           onChange={handleChange}
         />
+        {
+          errors.username &&
+          <p>{errors.password}</p>
+        }
       </div>
       <div>
         <input 
@@ -114,6 +144,14 @@ const SignUp = ({onSwitch}) => {
           value={formSignUpData.confirmPassword}
           onChange={handleChange}
         />
+        {
+          errors.confirmPassword &&
+          <p>{errors.confirmPassword}</p>
+        }
+        {
+          errors.confirmPasswordMatch &&
+          <p>{errors.confirmPasswordMatch}</p>
+        }
       </div>
       
       <button>Sign Up</button>
