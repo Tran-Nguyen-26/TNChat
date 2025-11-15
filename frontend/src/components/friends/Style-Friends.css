@@ -1,0 +1,42 @@
+.friends {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.friend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.friend:hover {
+  background-color: #3a3b3c;
+}
+
+.friend div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.friend div span {
+  font-size: 22px;
+}
+
+.friend div svg {
+  font-size: 50px;
+}
+
+.friend > svg {
+  font-size: 24px;
+}
+
+
+

@@ -1,6 +1,6 @@
 .home {
   background-color: black;
-  height: 100vh;
+  height: 96vh;
   padding: 20px;
   display: flex;
   gap: 30px;
@@ -62,6 +62,11 @@
 
 .search input::placeholder {
   color: rgb(194, 188, 188);
+}
+
+.left-container {
+  height: 100%;
+  overflow-y: auto;
 }
 
 .mid {

@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document
+@Builder
 public class Participant {
   @Id
   private String id;
@@ -23,4 +25,5 @@ public class Participant {
   private String lastSeenMessageId;
   private LocalDateTime lastSeenAt;
   private LocalDateTime joinAt;
+  private Long addedBy;
 }

@@ -29,7 +29,7 @@ public class FriendController {
   private final IFriendService friendService;
   private final FriendMapper friendMapper;
 
-  @GetMapping("/alls")
+  @GetMapping("/all")
   public ResponseEntity<ApiResponse<PageResponse<FriendResponse>>> getFriends(
       @AuthenticationPrincipal AppUserDetails user,
       @PageableDefault(page = 0, size = 20) Pageable pageable) {

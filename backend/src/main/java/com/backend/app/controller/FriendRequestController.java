@@ -5,6 +5,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -56,7 +57,7 @@ public class FriendRequestController {
     return ResponseEntity.ok(ApiResponse.success("Friend request rejected"));
   }
 
-  @PatchMapping("/{requestId}/cancel")
+  @DeleteMapping("/{requestId}/cancel")
   public ResponseEntity<ApiResponse<?>> cancelFriendRequest(
     @AuthenticationPrincipal AppUserDetails user,
     @PathVariable Long requestId

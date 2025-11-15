@@ -14,6 +14,8 @@ import com.backend.app.model.Friend;
 import com.backend.app.model.FriendRequest;
 import com.backend.app.model.User;
 import com.backend.app.repository.FriendRequestRepository;
+import com.backend.app.service.IConPartManagerService;
+import com.backend.app.service.IConversationService;
 import com.backend.app.service.IFriendRequestService;
 import com.backend.app.service.IFriendService;
 import com.backend.app.service.IUserService;
@@ -27,6 +29,7 @@ public class FriendRequestService implements IFriendRequestService {
   private final FriendRequestRepository friendRequestRepository;
   private final IFriendService friendService;
   private final IUserService userService;
+  private final IConPartManagerService conPartManagerService;
 
   @Override
   public FriendRequest getRequestById(Long requestId) {
@@ -93,6 +96,8 @@ public class FriendRequestService implements IFriendRequestService {
     
     friendService.saveFriend(friend1);
     friendService.saveFriend(friend2);
+
+    conPartManagerService.createDirectConversation(requestId, currentUserId);
   }
 
   @Override
